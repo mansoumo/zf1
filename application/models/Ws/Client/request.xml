@@ -1,0 +1,26 @@
+<env:Envelope 
+
+    xmlns:env="http://www.w3.org/2003/05/soap-envelope"
+    xmlns:ns1="java:com.ft.cristal.services.commun.ws" 
+    
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ns2="http://www.francetelecom.com/scristal/WebServices/ConsulterDossierClientG1"
+    xmlns:ns3="http://www.w3.org/2005/08/addressing">
+    
+    <env:Header>
+        <ns3:Action >http://www.francetelecom.com/scristal/WebServices/ConsulterDossierClientG1/ConsulterDossierClientG1Port/consulterDossierClientRequest</ns3:Action>
+        <ns3:To>45R_U20</ns3:To>
+    </env:Header>
+    
+    <env:Body>
+        <ns2:consulterDossierClient>
+            <ns2:structureConsulterDossierClientIn>
+                <ns1:ND>0148351983</ns1:ND>
+                <ns1:codeBasicat></ns1:codeBasicat>
+                <ns1:etatND></ns1:etatND>
+                <ns1:idClientFregate xsi:nil="true" />
+                <ns1:reference></ns1:reference>
+            </ns2:structureConsulterDossierClientIn>
+        </ns2:consulterDossierClient>
+    </env:Body>
+</env:Envelope>
