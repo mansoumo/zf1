@@ -21,7 +21,7 @@
  */
 
 /** @see PHPUnit_Runner_Version */
-require_once 'PHPUnit/Runner/Version.php';
+// require_once 'PHPUnit/Runner/Version.php';
 
 if (version_compare(PHPUnit_Runner_Version::id(), '3.5', '>=')) {
     include(dirname(__FILE__) . DIRECTORY_SEPARATOR . 'ResponseHeader37.php');
