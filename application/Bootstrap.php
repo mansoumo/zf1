@@ -1,4 +1,5 @@
 <?php
+
 class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 {
     public function _initLocaleTranslate()
@@ -9,11 +10,11 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         $this->bootstrap('locale');
         $zendLocale  = $this->getResource('locale');
         
-        if( ! $zendTranslate->isAvailable($zendLocale))  {
+        if ( ! $zendTranslate->isAvailable($zendLocale)) {
             $options  = $this->getOptions();
             
-            $localeDefault  = isset($options['resources']['locale']['default'] ) 
-            ? $options['resources']['locale']['default'] 
+            $localeDefault  = isset($options['resources']['locale']['default'] )
+            ? $options['resources']['locale']['default']
             : 'en';
             
             $zendLocale->setLocale($localeDefault);
@@ -23,7 +24,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
             : Zend_Application_Resource_Locale::DEFAULT_REGISTRY_KEY;
             Zend_Registry::set($key, $zendLocale);
             
-            $zendTranslate->setLocale($zendLocale);            
+            $zendTranslate->setLocale($zendLocale);
             Zend_Registry::set('Zend_Translate', $zendTranslate);
         }
     }
