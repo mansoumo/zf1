@@ -1,0 +1,30 @@
+<?php  foreach ($this->container as $page) : ?>
+<li>
+	<a href="<?php echo $page->getHref()?>"> 
+		<i class="<?php echo $page->get('iconeClass')?>"></i>
+		 
+		<?php echo $page->getLabel()?>
+			
+			
+		<?php if (count($page->getPages()))  : ?>		
+		<span class="fa arrow"></span>
+		<?php endif;?>	
+	</a>
+	
+	<?php if (count($page->getPages()))  : ?>
+		
+	<ul class="nav nav-second-level"> 
+			
+		<?php foreach($page->getPages() as $subpage) :?>			
+		<li>
+			
+			<a href="<?php echo $subpage->getHref()?>">
+				<i class="<?php echo $subpage->get('iconeClass')?>"></i>
+				<?php echo $subpage->getLabel()?>
+			</a>
+		<li>
+		<?php endforeach; ?>
+    </ul>
+	<?php endif; ?>
+</li>
+<?php endforeach; ?>

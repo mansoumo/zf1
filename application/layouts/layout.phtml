@@ -1,0 +1,35 @@
+<?php  echo $this->doctype(); ?>
+
+<html lang="<?php echo $this->language()?>">
+<head>
+
+<?php 
+	echo $this->headTitle($this->myApp()->getName());
+  
+	echo $this->headStyle(); 
+	echo $this->headLink();
+?>
+
+
+</head>
+<body>
+
+<div id="menu">
+	<?php
+		echo $this->navigation()->menu()->setUlClass('myclass'); ; 
+	?>
+	
+	<div class="clear"></div>
+</div>
+
+
+<div id="content">
+	<?php echo $this->layout()->content ?>
+</div>
+
+<div id="footer">
+	
+</div>
+
+</body>
+</html>    

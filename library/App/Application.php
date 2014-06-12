@@ -93,6 +93,16 @@ final class App_Application
         return $this->getApplication()->getBootstrap()->getResource($name);
     }
     
+    /**
+     * 
+     * @return Zend_Log 
+     */
+    public static function firePhpDebug($var)
+    {
+        $logger  = self::getInstance()->getResource('log');        
+        $logger->log($var, Zend_Log::DEBUG);
+    }
+    
     public function getEnvironment()
     {
         return $this->getApplication()->getEnvironment();
