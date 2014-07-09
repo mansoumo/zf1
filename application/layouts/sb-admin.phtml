@@ -75,27 +75,46 @@
 				</li>
 	        
 	        	<li class="dropdown">
+	        	
+	        		<?php if ($this->authIdentity()->hasIdentity()) : ?>
 	            	<a class="dropdown-toggle" data-toggle="dropdown" href="#">
 	                	<i class="fa fa-user fa-fw"></i>  
-	                	Mourad MANSOUR
+	                	<?php echo $this->authIdentity()->getName() ?>
 	                	<i class="fa fa-caret-down"></i>
 					</a>
 	                
 	                <ul class="dropdown-menu dropdown-user">
 	                	<li>
-	                		<a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+	                		<a href="<?php echo $this->acmUrl('view', 'profile', 'user')?>">
+	                			<i class="fa fa-user fa-fw"></i> 
+	                			<?php echo $this->translate('user_profile')?>
+	                		</a>
 	                    </li>
 	                    
 	                    <li>
-	                    	<a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+	                		<a href="<?php echo $this->acmUrl('update-password', 'profile', 'user')?>">
+	                			<i class="fa fa-lock fa-fw"></i> 
+	                			<?php echo $this->translate('user_password_update')?>
+	                		</a>
+	                    
 	                    </li>
 						
 						<li class="divider"></li>
 						
 						<li>
-							<a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+							<a href="<?php echo $this->acmUrl('logout', 'auth', 'user')?>">
+								<i class="fa fa-sign-out fa-fw"></i> 
+								<?php echo $this->translate('user_logout') ?>
+							</a>
 						</li>
 					</ul>
+					
+					<?php else : ?>
+						<a href="<?php echo $this->acmUrl('login', 'auth', 'user')?>">
+								<i class="fa fa-sign-in fa-fw"></i> 
+								<?php echo $this->translate('user_connect') ?>
+						</a>
+					<?php endif ?>
 				</li>
 				
 				
@@ -105,7 +124,12 @@
 	        <div class="navbar-default navbar-static-side" role="navigation">
 	        	<div class="sidebar-collapse">
 	        	<ul class="nav" id="side-menu">
-					<?=$this->navigation()->menu()->renderPartial(null, 'sb-admin-vmenu.phtml')?>
+					<?php 
+					echo $this->navigation()
+					->menu()					
+					->renderPartial(null, 'sb-admin-vmenu.phtml')
+					
+					?>
 				</ul>
 						        		
 				</div>
@@ -121,7 +145,15 @@
 					<ol class="breadcrumb">						
 						<li>
 							<i class="fa fa-hand-o-right fa-fw"></i>
-							<?php  echo $this->navigation()->breadcrumbs()->setMinDepth(0)->setLinkLast(true)->render() ?>
+							<?php  
+							echo $this->navigation()
+							->breadcrumbs()
+							->setRenderInvisible(true)
+							->setMinDepth(0)
+							->setLinkLast(true)
+							->setSeparator(' <i class="fa fa-angle-right fa-fw"></i>')
+							->render() 
+							?>
 						</li>	
 					</ol>
 				</div>
@@ -135,17 +167,15 @@
 			</div>
 			
 	    </div>
-
-	</div>
-	
-	<footer class="footer">
-		<p> 
-			&copy; 2014 
-			<a href="http://mansour-mourad.olympe.in">
-				Mourad MANSOUR
-			</a>	
-		</p>
-			 
-	</footer>    
+		
+		<footer class="footer">
+			<p> 
+				&copy; 2014 
+				<a href="http://mansour-mourad.olympe.in">
+					Mourad MANSOUR
+				</a>	
+			</p>			 
+		</footer>
+	</div>	
 </body>
 </html> 

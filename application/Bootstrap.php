@@ -2,8 +2,9 @@
 
 class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 {
+    
     public function _initLocaleTranslate()
-    {
+    {        
         $this->bootstrap('translate');
         $zendTranslate  = $this->getResource('translate');
         

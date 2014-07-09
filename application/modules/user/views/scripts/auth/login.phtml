@@ -1,0 +1,96 @@
+<div class="col-md-4 col-md-offset-4">
+
+    <div class="login-panel panel panel-default">
+    
+        <div class="panel-heading">
+        	<?php echo $this->myApp()->getName() ?> : 
+			<?php echo $this->translate('user_authentification')?>
+		</div>
+
+        <div class="panel-body">
+                <?php if (is_array($this->authResultMessages) && count($this->authResultMessages)) :?>
+                
+                
+                <div class="alert alert-warning top5">
+                <ul class="form-element-errors list-unstyled">
+                <?php foreach ($this->authResultMessages as $msg)  : ?>
+					<li class="form-element-error">
+						<i class="fa fa-warning text-warning"></i>
+						<span class="text-warning"><?php echo $this->translate($msg)?> </span>
+					</li>
+				
+				<?php endforeach; ?>
+				</ul>
+				</div>
+				
+				<?php endif; ?>
+        
+            <form role="form" method="post" id="<?php echo $this->userLoginForm->getId() ?>">
+                
+				<div>
+                    <label class="control-label" for="username">
+						<?php echo $this->userLoginForm->getElement('username')->getLabel(); ?>
+					</label>
+
+                    <div class="form-group input-group">
+                        
+                        <span class="input-group-addon"> 
+                        	<i class="fa fa-user"></i>
+                        </span>	
+						
+						<?php  echo $this->userLoginForm->getElement('username')->renderViewHelper(); ?>
+						
+						<span class="input-group-btn">
+						<?php  echo $this->formElementButtonInfo(
+						    				$this->translate(
+													$this->userLoginForm->getElement('username')->getDescription()
+											)		
+									)
+						?>
+						</span>
+                       	
+                    </div>
+					
+					<?php echo $this->FormElementErrors($this->userLoginForm->getElement('username')->getMessages())?>
+						
+				</div>
+
+                <div >
+                    <label class="control-label" for="password">
+						<?php echo $this->userLoginForm->getElement('password')->getLabel(); ?>
+					</label>
+
+                    <div class="form-group input-group">
+                        
+                        <span class="input-group-addon"> 
+                        	<i class="fa fa-unlock"></i>
+                        </span>	
+						
+						<?php  echo $this->userLoginForm->getElement('password')->renderViewHelper(); ?>
+							
+						<span class="input-group-btn">
+						<?php  echo $this->formElementButtonInfo(
+						    				$this->translate(
+													$this->userLoginForm->getElement('password')->getDescription()
+											)		
+									)
+						?>
+							                    	
+						</span>
+						
+                    </div>
+						
+					<?php echo $this->FormElementErrors($this->userLoginForm->getElement('password')->getMessages())?>
+				</div>
+
+                <div>
+                    <button class="btn btn-default" type="submit">
+                        <i class="fa fa-sign-in fa-fw"></i>
+						<?php echo $this->translate('user_connect')?>
+					</button>
+                </div>
+                
+            </form>
+        </div>
+    </div>
+</div>
