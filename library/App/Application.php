@@ -75,6 +75,7 @@ final class App_Application
     
     public function run()
     {
+        $this->_pluginsLoaderSetIncludeFileCache();
         $this->getApplication()->bootstrap()->run();
     }
     
@@ -95,19 +96,17 @@ final class App_Application
     
     /**
      * 
-     * @return Zend_Log 
+     * @return string
      */
-    public static function firePhpDebug($var)
-    {
-        $logger  = self::getInstance()->getResource('log');        
-        $logger->log($var, Zend_Log::DEBUG);
-    }
-    
     public function getEnvironment()
     {
         return $this->getApplication()->getEnvironment();
     }
     
+    /**
+     * 
+     * @return string
+     */
     public function getName()
     {
         $myAppOptions  = $this->getOptionKey('myApp');
@@ -115,6 +114,34 @@ final class App_Application
         $myAppOptions['name'] : '';
     }
     
+    protected function _pluginsLoaderSetIncludeFileCache()
+    {
+        $options  = $this->getOptions();
+        
+        if (!isset($options['pluginsLoader']) ) {
+            return false;
+        } else {
+            $pluginLoaderOptions = $options['pluginsLoader'];
+        }
+        
+        if ( false === isset($pluginLoaderOptions['enableCache'])
+            ||
+            1 !== (int) $pluginLoaderOptions['enableCache']
+        ) {
+            return false;
+        }
+        
+        if ( false === isset($pluginLoaderOptions['includeCachePath'])
+            ||
+            false === is_file($pluginLoaderOptions['includeCachePath'])
+        ) {
+            throw new Zend_Exception($pluginLoaderOptions['includeCachePath'] . ' invalid file');
+        }
+        
+        require_once $pluginLoaderOptions['includeCachePath'];
+        Zend_Loader_PluginLoader::setIncludeFileCache($pluginLoaderOptions['includeCachePath']);
+        
+    }
     protected function _setConfig($configFile)
     {
         if (!is_file($configFile)) {
