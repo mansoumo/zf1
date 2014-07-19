@@ -32,8 +32,8 @@ class App_View_Helper_AcmUrl extends Zend_View_Helper_Abstract
         
         $urlOptions['action'] = $action;
         $urlOptions['controller'] = $controller;
-        $urlOptions['module'] = $module;
+        $urlOptions['module'] = $module;        
         
-        return $this->view->url($urlOptions);
+        return $this->view->url($urlOptions, null, true);
     }
 }

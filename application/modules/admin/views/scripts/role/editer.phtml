@@ -1,0 +1,109 @@
+<?php
+	// Breadcrumbs
+	$this->breadcrumbs()->append(
+	    $this->htmlAnchor(
+	        $this->translate('roles'),
+	        $this->acmUrl(
+	            'lister',
+	            'role',
+	            'admin',
+	            array()
+	        )
+	   )
+	);
+	
+	$editerLabel  = ( empty($this->roleId)) ? 'role_ajouter' : 'role_modifier';	
+	$this->breadcrumbs()->append($this->translate($editerLabel));
+	
+	// Form elements	
+	$roleElement = $this->form->getElement('role');
+	$roleParentElement = $this->form->getElement('parent_id');
+	
+?>
+
+<?php 
+	if (!empty($this->errorMessage)) : 	 
+		$text =  $this->translate($this->errorMessage); 
+		
+		echo $this->alert($text, $this->errorStatus);
+		
+		return;
+		
+	 endif; 
+?>
+
+<?php 
+	if (!empty($this->saveStatus)) : 	 
+		$text =  $this->translate($this->saveMessage); 
+		
+		echo $this->alert($text, $this->saveStatus);
+		
+	 endif; 
+?>
+
+<div class="row">
+	<div class="col-md-8">
+		<div class="panel panel-default">
+		    
+		    <div class="panel-body">
+        
+            <form role="form" method="post" id="<?php echo $this->form->getId() ?>">
+                
+				<div>
+                    <label class="control-label" for="role">
+						<?php echo $roleElement->getLabel(); ?>
+					</label>
+
+                    <div class="form-group input-group">
+						
+						<?php  echo $roleElement->renderViewHelper(); ?>
+						
+						<span class="input-group-btn">
+						<?php  echo $this->formElementButtonInfo(
+						    				$this->translate(
+													$roleElement->getDescription()
+											)		
+									)
+						?>
+                       	</span>
+                       	
+                    </div>
+					
+					<?php echo $this->FormElementErrors($roleElement->getMessages())?>						
+				</div>
+				
+				<div>
+                    <label class="control-label" for="role">
+						<?php echo $roleParentElement->getLabel(); ?>
+					</label>
+
+                    <div class="form-group input-group">
+						
+						<?php  echo $roleParentElement->renderViewHelper(); ?>
+						
+						<span class="input-group-btn">
+						<?php  echo $this->formElementButtonInfo(
+						    				$this->translate(
+													$roleParentElement->getDescription()
+											)		
+									)
+						?>
+                       	</span>                       	
+                    </div>					
+					<?php echo $this->FormElementErrors($roleParentElement->getMessages())?>						
+				</div>
+				
+                <div>
+                    <button class="btn btn-default" type="submit">
+                        <i class="fa fa-save fa-fw"></i>
+						<?php echo $this->translate('action_save')?>
+					</button>										
+                </div>
+                
+            </form>
+            </div>
+            
+        </div>
+    </div>
+</div>
+

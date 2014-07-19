@@ -25,7 +25,8 @@ class App_View_Helper_Alert extends Zend_View_Helper_Abstract
     const STATUS_SUCCESS = 'success';
     const STATUS_INFO = 'info';
     const STATUS_WARNING = 'warning';
-    const STATUS_DANGER = 'danger';
+    const STATUS_ERROR = 'danger';
+    
     
     public function alert($message, $status, $dismissable = true)
     {
@@ -41,6 +42,26 @@ class App_View_Helper_Alert extends Zend_View_Helper_Abstract
         
         if ( $dismissable) {
             $html .= '<button class="close" aria-hidden="true" data-dismiss="alert" type="button">×</button>';
+        }
+        
+        $iClass = null;
+        switch ($status) {
+        	case self::STATUS_SUCCESS :
+        	    $iClass = 'fa-check-circle';
+        	    break;
+        	case self::STATUS_INFO:
+        	    $iClass = 'fa-info-circle';
+        	    break;
+        	case self::STATUS_WARNING:
+        	    $iClass = 'fa-exclamation-circle';
+        	    break;
+        	case self::STATUS_ERROR:
+        	    $iClass = 'fa-exclamation-triangle';
+        	    break;
+        }
+                
+        if ($iClass !== null) {
+            $html .= '<i class="fa '.$iClass.'"></i> ';
         }
         
         $html .= $message;
