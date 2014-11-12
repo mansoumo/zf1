@@ -28,5 +28,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
             $zendTranslate->setLocale($zendLocale);
             Zend_Registry::set('Zend_Translate', $zendTranslate);
         }
+        
+        
     }
 }
