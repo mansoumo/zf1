@@ -1,0 +1,171 @@
+<?php
+	// Breadcrumbs
+	$resourceListerUrl = $this->acmUrl('lister','resource','admin',array());
+	 
+	$this->breadcrumbs()->append($this->translate('resources'));
+	
+	$this->breadcrumbs()->append(
+	    $this->htmlAnchor(
+	        $this->translate('resource_lister'),
+	        $resourceListerUrl
+	   )
+	);
+	
+	$editerLabel  = ( empty($this->resourceId)) ? 'resource_ajouter' : 'resource_modifier';	
+		
+	// Form elements	
+	$moduleElement = $this->form->getElement('module');
+	$controllerElement = $this->form->getElement('controller');
+	$actionElement = $this->form->getElement('action');
+	$descriptionElement = $this->form->getElement('description');
+	
+?>
+
+<?php 
+	if (!empty($this->errorMessage)) : 	 
+		$text =  $this->translate($this->errorMessage); 
+		
+		echo $this->alert($text, $this->errorStatus);
+		
+		return;
+		
+	 endif; 
+?>
+
+<?php 
+	if (!empty($this->saveStatus)) : 	 
+		$text =  $this->translate($this->saveMessage); 
+		
+		echo $this->alert($text, $this->saveStatus);
+		
+	 endif; 
+?>
+
+<div class="row">
+	<div class="col-md-8">
+		<div class="panel panel-default">
+		
+            <div class="panel-heading">
+            	<?php echo $this->translate($editerLabel) ?>            	
+            	<div class="row"></div>
+            </div>
+		
+		    <div class="panel-body">
+        
+            <form role="form" method="post" id="<?php echo $this->form->getId() ?>">
+                
+				<!-- Resource : module -->
+				<div>
+                    <label class="control-label" for="role">
+						<?php echo $moduleElement->getLabel(); ?>
+					</label>
+
+                    <div class="form-group input-group">
+						
+						<span class="input-group-btn">
+						<?php  echo $this->formElementButtonInfo(
+						    				$this->translate(
+													$moduleElement->getDescription()
+											)		
+									)
+						?>
+                       	</span>
+                    
+						<?php  echo $moduleElement->renderViewHelper(); ?>
+                    </div>
+					
+					<?php echo $this->FormElementErrors($moduleElement->getMessages())?>						
+				</div>
+				
+				<!-- Resource : controller -->
+				<div>
+                    <label class="control-label" for="role">
+						<?php echo $controllerElement->getLabel(); ?>
+					</label>
+
+                    <div class="form-group input-group">
+						
+						<span class="input-group-btn">
+						<?php  echo $this->formElementButtonInfo(
+						    				$this->translate(
+													$controllerElement->getDescription()
+											)		
+									)
+						?>
+                       	</span>
+                    
+						<?php  echo $controllerElement->renderViewHelper(); ?>
+                    </div>
+					
+					<?php echo $this->FormElementErrors($controllerElement->getMessages())?>						
+				</div>
+				
+				<!-- Resource : action -->
+				<div>
+                    <label class="control-label" for="role">
+						<?php echo $actionElement->getLabel(); ?>
+					</label>
+
+                    <div class="form-group input-group">
+						
+						<span class="input-group-btn">
+						<?php  echo $this->formElementButtonInfo(
+						    				$this->translate(
+													$actionElement->getDescription()
+											)		
+									)
+						?>
+                       	</span>
+                    
+						<?php  echo $actionElement->renderViewHelper(); ?>
+                    </div>
+					
+					<?php echo $this->FormElementErrors($actionElement->getMessages())?>						
+				</div>
+				
+				<!-- Resource : description -->
+				<div>
+                    <label class="control-label" for="role">
+						<?php echo $descriptionElement->getLabel(); ?>
+					</label>
+
+                    <div class="form-group input-group">
+						
+						<span class="input-group-btn">
+						<?php  echo $this->formElementButtonInfo(
+						    				$this->translate(
+													$descriptionElement->getDescription()
+											)		
+									)
+						?>
+                       	</span>
+                    
+						<?php  echo $descriptionElement->renderViewHelper(); ?>
+                    </div>
+					
+					<?php echo $this->FormElementErrors($descriptionElement->getMessages())?>						
+				</div>
+				
+                <div class="text-right">
+                    <a 
+                    	class="btn btn-default"
+                    	href="<?php echo $resourceListerUrl; ?>" 
+                    	>
+                        <i class="fa fa-undo fa-fw"></i>
+						<?php echo $this->translate('resource_save_undo')?>
+					</a>
+                
+                    <button class="btn btn-default" type="submit" >
+                        <i class="fa fa-save fa-fw"></i>
+						<?php echo $this->translate('resource_save_do')?>
+					</button>
+															
+                </div>
+                
+            </form>
+            </div>
+            
+        </div>
+    </div>
+</div>
+

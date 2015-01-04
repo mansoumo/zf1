@@ -13,6 +13,13 @@ class IndexController extends Zend_Controller_Action
     
     public function indexAction()
     {
+//         $id  = 1;
+        
+//         $idCrypted  = App_Crypt::encrypt($id);
+//         Zend_Debug::dump($idCrypted);
+        
+//         Zend_Debug::dump(App_Crypt::decrypt($idCrypted));
+        
 //         $acl = new App_Acl();
         
 //         $module  = $this->_getParam('module');
@@ -42,12 +49,13 @@ class IndexController extends Zend_Controller_Action
 
     public function action1Action()
     {
-        die('action1');
+        $this->_request->setPost(array('p1'=>'val1'));
+        $this->forward('action2');        
     }
     
     public function action2Action()
     {
-        die('action2');    
+        var_dump($_POST); die();
         
     }
 

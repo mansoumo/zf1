@@ -1,7 +1,7 @@
 $(function() {
-
     $('#side-menu').metisMenu();
-
+    $('[data-toggle="popover"]').popover();
+    $('[data-toggle="tooltip"]').tooltip();    
 });
 
 //Loads the correct sidebar on window load,

@@ -1,0 +1,89 @@
+<?php
+	// Breadcrumbs
+	$this->breadcrumbs()->append($this->translate('permissions'));		
+?>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            
+            <div class="panel-heading">
+            	<?php echo $this->translate('permission_setting') ?>
+            	
+            	<div class="row"></div>
+            </div>
+            
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered table-hover">
+                        <thead>
+                        
+                            <tr>
+                                <th colspan="3" class="td-width-30">
+                                    <?php echo $this->translate('resources')?>
+                                </th>
+                                
+                                <th colspan="<?php echo count($this->rolesList)?>">
+                                    <?php echo $this->translate('roles')?>
+                                </th>
+                            </tr>
+                            
+                            <?php if (is_array($this->rolesList) && count($this->rolesList)) : ?>
+                            <tr>
+                                <th>
+                                    <?php echo $this->translate('resource_module')?>
+                                </th>
+                                
+                                <th>
+                                    <?php echo $this->translate('resource_controller')?>
+                                </th>
+                                
+                                <th>
+                                    <?php echo $this->translate('resource_action')?>
+                                </th>
+                                
+                                <?php foreach ($this->rolesList as $roleRow) : ?>
+                                <td>
+                                	<?php echo $roleRow['role']?>
+                                </td>
+                                <?php endforeach; ?>
+                            </tr>
+                            <?php endif; ?>
+                        </thead>
+                         
+                        <tbody>
+                            <?php if (is_array($this->resourcesList) && count($this->resourcesList) ) : ?>
+                            
+                            <?php foreach ($this->resourcesList as $resourceRow ) : ?>
+                            <tr>
+                                <td>
+                                    <?php echo  $resourceRow['module'] ?>
+                                </td>
+                                
+                                <td>
+                                    <?php echo $resourceRow['controller']?>
+                                </td>
+                                
+                                <td>    
+                                    <?php echo $resourceRow['action'] ?>
+                                </td>
+                                
+                                <?php foreach ($this->rolesList as $roleRow) : ?>
+                                <td>
+                                	<?php echo $resourceRow['id']?> <?php echo $roleRow['id']?>
+                                </td>
+                                <?php endforeach; ?>
+                                
+                            </tr>
+                            <?php endforeach;?>
+                            
+                            <?php endif; ?>
+                        </tbody>
+                        
+                   </table>
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</div>                

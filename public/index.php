@@ -63,7 +63,7 @@ defined('APPLICATION_ENV')
 // Ensure library/ is on include_path
 set_include_path(
     ZF_LIB.PS.
-    LIBRARY_DIR    
+    LIBRARY_DIR
 );
 
 require_once 'Zend'.DS.'Loader.php';
@@ -89,3 +89,24 @@ try{
     echo "</pre>\n";
 }
  
+// require_once 'Zend/Loader/AutoloaderFactory.php';
+// require_once 'Zend/Loader/SplAutoloader.php';
+// require_once 'Zend/Loader/StandardAutoloader.php';
+// require_once 'Zend/Loader/ClassMapAutoloader.php';
+
+// Zend_Loader_AutoloaderFactory::factory(
+// 	array(
+
+// 		'Zend_Loader_ClassMapAutoloader' => array(
+// 			ZF_LIB.'/autoload_classmap.php',
+// 			APP_LIB.DS.'autoload_classmap.php'
+//     	 ),
+ 
+//     	'Zend_Loader_StandardAutoloader' => array(
+//     		'prefixes' => array(
+//     			'Zend' => ZF_LIB.DS.'Zend',
+//     		),
+//     		'fallback_autoloader' => true
+//     	)
+// 	)
+// );

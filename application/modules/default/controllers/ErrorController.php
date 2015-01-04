@@ -55,7 +55,7 @@ class ErrorController extends Zend_Controller_Action
     
     public function noRightAction()
     {
-        echo "no right " ;die();
+        echo "no right " ; die();
     }
 
 

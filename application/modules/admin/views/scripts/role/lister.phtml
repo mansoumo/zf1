@@ -64,18 +64,24 @@
                         	</td>
                         	
                         	<td class="td-width-40">
-                        		<?php echo $role['role'] ?>
+                        		<?php echo $this->escape($role['role']) ?>
                         	</td>
                         	
                         	<td class="td-width-30">
-                        		<?php echo $role['role_parent'] ?>
+                        		<?php echo $this->escape($role['role_parent']) ?>
                         	</td>
                         	
                         	<td >
                         		<ul class="list-inline">
                         		<li>
 								<a 
-									href="<?php echo $this->acmUrl('editer', 'role', 'admin', array('role_id' => $role['id']) )?>"
+									href="<?php echo $this->acmUrl(
+									    'editer',
+									    'role',
+									    'admin',
+									    array('role_id' => $role['id']) 
+									    )
+									?>"
 									class="btn btn-outline btn-info btn-sx" 
 									role="button" 						
 									data-placement="top" 
@@ -88,11 +94,16 @@
                         		</li>
                         		<li>
                         		<a 
-                        			href="<?php echo $this->acmUrl('supprimer', 'role', 'admin', array('role_id' => $role['id']) )?>"
+                        			href="<?php echo $this->acmUrl(
+                        			    'supprimer',
+                        			    'role',
+                        			    'admin',
+                        			    array('role_id' => $role['id']) 
+                        			 )?>"                        			 
                         			class="btn btn-outline btn-danger btn-sx" 
 									role="button" 						
 									data-placement="top" 
-									data-toggle="tooltip"
+									data-toggle="tooltip"									
 									data-original-title="<?php echo $this->translate('role_supprimer') ?>"                        			
                         			>
 									<i class="fa fa-trash-o"></i>
@@ -117,3 +128,4 @@
         </div>
     </div>
 </div>    
+

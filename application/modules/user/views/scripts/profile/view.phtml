@@ -1,0 +1,97 @@
+<?php
+	$this->breadcrumbs()->append($this->translate('user_profile'));
+?>
+
+<?php if( !empty($this->error)) :?>
+
+<div class="row">
+	<div class="col-md-8">
+		<div class="alert alert-warning">
+			<?php echo $this->translate($this->error) ?>
+		</div>
+	</div>	
+</div>
+
+<?php
+	return; 
+	endif;	 
+?>
+<div class="row">
+	<div class="col-md-8">
+		<div class="panel panel-default">
+		
+		    <div class="panel-heading">
+		        <i class="fa fa-user fa-fw"></i>
+		        <?php echo $this->translate('user_informations') ?>
+		    </div>
+		    
+		    <div class="panel-body">
+		        <div class="list-group">
+		            
+		            <div class="list-group-item">
+		            	<div class="row">
+			            	<label class="col-md-4">
+			            		<?php echo $this->translate('user_familly_name') ?>  
+			            	</label>
+		            	
+			            	<span class="col-md-8" >
+			            		<?php echo $this->escape($this->userRow->familly_name)?>
+			            	</span>
+		            	</div>
+		            </div>
+		            
+		            
+		            <div class="list-group-item ">
+		            	<div class="row">
+			            	<label class="col-md-4">
+		            	    	<?php echo $this->translate('user_first_name') ?>
+		            	    </label>
+		            	
+		            		<span class="col-md-8" >
+		            			<?php echo $this->escape($this->userRow->first_name)?>
+		            		</span>
+		            	</div>
+		            </div>
+		            
+		            <div class="list-group-item">
+		            	<div class="row">
+			            	<label class="col-md-4">
+		            
+		            			<?php echo $this->translate('user_email') ?>
+		            		</label>
+		            	
+		            		<span class="col-md-8" >
+		            			<?php echo $this->escape($this->userRow->email)?>
+		            		</span>
+		            	</div>		            	
+		            </div>
+		            
+		            <div class="list-group-item">
+		            	<div class="row">
+			            	<label class="col-md-4">
+		            
+		            			<?php echo $this->translate('user_language_code') ?>
+		            		</label>
+		            	
+		            		<span class="col-md-8" >
+		            			<?php echo $this->escape($this->userRow->language_code)?>
+		            		</span>
+		            	</div>		            	
+		            </div>
+
+		            <div class="list-group-item">
+		            	<div class="row">
+			            	<label class="col-md-4">		            
+		            			<?php echo $this->translate('user_login') ?>
+		            		</label>
+		            	
+		            		<span class="col-md-8" >
+		            			<?php echo $this->escape($this->userRow->login)?>
+		            		</span>
+		            	</div>
+		            </div>
+		       </div>
+		    </div>
+		</div>
+	</div>
+</div>    

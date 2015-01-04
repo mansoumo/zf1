@@ -1,0 +1,48 @@
+<?php  echo $this->doctype(); ?>
+
+<html lang="<?php echo $this->language()?>">
+<head>
+
+<?php 
+	
+	// Title
+	echo $this->headTitle();
+	
+	// CSS
+	$this->headLink()->prependStylesheet($this->baseUrl('css/font-awesome/4.0.3/css/font-awesome.min.css'));
+	$this->headLink()->prependStylesheet($this->baseUrl('css/bootstrap/3.1.0/bootstrap.min.css'));
+		
+// 	$this->headLink()->appendStylesheet($this->baseUrl('css/flags/flags.css'));
+// 	$this->headLink()->appendStylesheet($this->baseUrl('css/layout/sb-admin.css'));
+
+	
+	
+	// JS
+	$this->headScript()->prependFile( $this->baseUrl('js/bootstrap/3.1.0/bootstrap.min.js' ) );
+	$this->headScript()->prependFile( $this->baseUrl('js/jquery/1.10.2/jquery.js' ) );
+// 	$this->headScript()->appendFile( $this->baseUrl('js/jquery/plugins/metisMenu/jquery.metisMenu.js' ) );
+// 	$this->headScript()->appendFile( $this->baseUrl('js/sb-admin/sb-admin.js' ) );
+	
+// 	$this->headScript()->appendFile( $this->baseUrl('js/sb-admin/sb-admin.js' ) );
+	echo $this->headScript();
+		
+	// Meta
+	echo $this->headMeta();
+	
+	// link
+	echo $this->headLink();
+	echo $this->headStyle();
+	
+	
+?>
+
+
+</head>
+<body>
+		
+	<div class="col-lg-12">
+		<?php echo $this->layout()->content ?>
+	</div>
+	
+</body>
+</html> 

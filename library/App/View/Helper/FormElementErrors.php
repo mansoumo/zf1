@@ -39,7 +39,7 @@ class App_View_Helper_FormElementErrors extends Zend_View_Helper_Abstract
         foreach ($errors as $errorMsg) {
             $html .= '<li class="'.$liClass.'">';
             $html .= '<i class="fa fa-warning '.$textClass.'"></i> ';
-            $html .= '<span class="'.$textClass.'">'.$errorMsg.'</span>';
+            $html .= '<span class="'.$textClass.'">'.$this->view->escape($errorMsg).'</span>';
             $html .= '</li>';
         }
         $html .= '</ul>';

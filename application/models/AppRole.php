@@ -9,9 +9,9 @@ class Application_Model_AppRole extends Application_Model_Abstract
     
     protected $_dbRow = null;
     
-    public function __construct($userDbId = null)
+    public function __construct($roleDbId = null)
     {
-        $this->_dbRowId = $userDbId;
+        $this->_dbRowId = $roleDbId;
     }
     
     public function getDbRowId()

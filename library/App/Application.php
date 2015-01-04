@@ -114,6 +114,26 @@ final class App_Application
         $myAppOptions['name'] : '';
     }
     
+    public function getSecurityKey()
+    {
+        $myAppOptions  = $this->getOptionKey('myApp');
+        if ( !isset($myAppOptions['securityKey'])) {
+            throw new Zend_Exception('myApp.securityKey not found in application.ini file');
+        }
+        
+        return $myAppOptions['securityKey'];
+    }
+    
+    public function getSecuritySalt()
+    {
+        $myAppOptions  = $this->getOptionKey('myApp');
+        if ( !isset($myAppOptions['securitySalt'])) {
+            throw new Zend_Exception('myApp.securitySalt not found in application.ini file');
+        }
+    
+        return $myAppOptions['securitySalt'];
+    }
+    
     protected function _pluginsLoaderSetIncludeFileCache()
     {
         $options  = $this->getOptions();

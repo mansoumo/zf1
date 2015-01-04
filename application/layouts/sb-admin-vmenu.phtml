@@ -4,7 +4,7 @@
 	<a href="<?php echo $page->getHref()?>"> 
 		<i class="<?php echo $page->get('iconeClass')?>"></i>
 		 
-		<?php echo $page->getLabel()?>
+		<?php echo $this->translate($page->getLabel())?>
 			
 			
 		<?php if (count($page->getPages()))  : ?>		
@@ -20,7 +20,7 @@
 			
 			<a href="<?php echo $subpage->getHref()?>">
 				<i class="<?php echo $subpage->get('iconeClass')?>"></i>
-				<?php echo $subpage->getLabel()?>
+				<?php echo $this->translate($subpage->getLabel())?>
 			</a>
 		<li>
 		<?php endforeach; ?>

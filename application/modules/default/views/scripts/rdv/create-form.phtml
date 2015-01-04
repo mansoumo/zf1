@@ -1,0 +1,136 @@
+<?php 	
+	$this->headScript()->appendFile( $this->baseUrl('js/bootstrap/datepicker/bootstrap-datepicker.js' ) );
+	$this->headScript()->appendFile( $this->baseUrl('js/bootstrap/datepicker/locales/bootstrap-datepicker.fr.js' ) );
+	$this->headScript()->appendFile( $this->baseUrl('js/app/rdv/rdv.js' ) );
+	
+	$this->headLink()->appendStylesheet($this->baseUrl('css/bootstrap/datepicker/datepicker.css'));	
+?>	
+	
+
+<form role="form" method="post" >
+
+<div class="clearfix">&nbsp;</div>
+
+<div class="row">	
+    <div class="col-lg-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+            	Date et heure du rendez-vous
+            </div>
+            
+            <div class="panel-body">
+				<div>
+                    <label class="control-label" for="role">
+                    	 Sélectionnez une date
+					</label>
+                    <div class="form-group input-group date">
+                    
+                    	<span class="input-group-addon" >
+							<i class="fa fa-calendar"></i>
+						</span>
+						                    							
+						<input type="text" name="rdv-date" id="rdv-date" value="" maxlength="32" class="form-control" >						
+						
+						<span class="input-group-btn">
+						 	<button 
+						 		class="btn btn-default" 
+						 		type="button" 
+						 		title="" 
+						 		data-placement="right" 
+						 		data-toggle="popover" 
+						 		data-container="body" 
+						 		data-content="Date du rendez-vous. Ce champ est obligatoire" data-original-title="Info" >
+						 		<i class="fa fa-info-circle"></i> 
+						 	</button>                       	
+						</span>
+						                       	
+                    </div>											
+				</div>            
+            </div>
+        </div>
+    </div>    
+</div>
+
+
+<?php return ?>
+
+<div class="row">	
+    <div class="col-lg-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">indiquez le motif de votre demande de rendez-vous</div>
+            
+            <div class="panel-body">
+            
+            </div>
+        </div>
+    </div>    
+</div>
+
+<div class="row">	
+    <div class="col-lg-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">coordonnées</div>
+            
+            <div class="panel-body">
+            
+            </div>
+        </div>
+    </div>    
+</div>
+
+<div class="row">	
+    <div class="col-lg-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">confirmation</div>
+            
+            <div class="panel-body">
+            
+            </div>
+        </div>
+    </div>    
+</div>
+
+<div class="row">	
+    <div class="col-lg-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">récapitulatif</div>
+            
+            <div class="panel-body">
+
+			Vous souhaitez prendre rendez-vous le 4 juillet à 11h00, avec un conseiller commercial à l'adresse suivante :
+			
+			<p>
+			Boutique Orange – Marseille 
+			30 rue de la Canebière
+			13001 Marseille
+			</p>
+			 
+			 
+            </div>
+        </div>
+    </div>    
+</div>
+
+<div class="row">	
+    <div class="col-lg-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">confirmation du rendez-vous</div>
+            
+            <div class="panel-body">
+
+			nous vous confirmons le rendez-vous le 4 juillet à 11h00, avec un conseiller commercial à l'adresse suivante :
+			
+			<p>
+			Boutique Orange – Marseille 
+			30 rue de la Canebière
+			13001 Marseille
+			</p>
+			 
+			 
+            </div>
+        </div>
+    </div>    
+</div>
+</form>
+
+	
